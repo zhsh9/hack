@@ -590,6 +590,55 @@ private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundE
 
 ## 多线程
 
+- 定义：线程是程序执行的最小单位
+- 创建线程:
+  1. 继承 Thread 类
+  2. 实现 Runnable 接口（推荐）
+- 线程控制:
+  - start(): 启动线程
+  - run(): 定义线程任务
+  - sleep(long millis): 使线程休眠
+  - join(): 等待线程结束
+  - yield(): 让出CPU执行权
+
+```java
+// 方法1：继承Thread类
+class MyThread extends Thread {
+    public void run() {
+        // 线程执行代码
+    }
+}
+
+// 方法2：实现Runnable接口
+class MyRunnable implements Runnable {
+    public void run() {
+        // 线程执行代码
+    }
+}
+```
+
+线程生命周期:  
+- 新建（New）
+- 可运行（Runnable）
+- 运行（Running）
+- 阻塞（Blocked）
+- 等待（Waiting）
+- 超时等待（Timed Waiting）
+- 终止（Terminated）
+
+线程池: 
+- Executors 工厂方法
+- ThreadPoolExecutor 自定义线程池
+
+```java
+ExecutorService executor = Executors.newFixedThreadPool(10);
+executor.submit(new Runnable() {
+    public void run() {
+        // 任务代码
+    }
+});
+```
+
 ## 网络编程
 
 ### TCP
